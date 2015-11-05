@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="../css/clank.css" media="screen">
+    <link rel="stylesheet" href="../css/entertain.css" media="screen">
+
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/jquery.extendedinput.js/js/jquery.extendedinput.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../bower_components/angular/angular.min.js"></script>
+
+    <script src="../js/clank/ratchet/fingerblast.js"></script>
+    <script src="../js/clank/ratchet/sliders.js"></script>
+    <script src="../js/clank/ratchet/toggles.js"></script>
+    <script src="../js/clank/clank.js"></script>
+    <script src="../js/entertain.js"></script>
+
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=182114351849103";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="cl-device-frame" ng-app="Entertain">
+    <div class="cl-device-wrap" data-os="ios" data-device="iphone4-portrait">
+
+        <div class="cl-device-body">
+
+            <div class="cl-ios-status">
+          <span>
+            <span class="signals">
+              <span class="signal1"></span>
+              <span class="signal2"></span>
+              <span class="signal3"></span>
+              <span class="signal4"></span>
+              <span class="signal5"></span>
+            </span>
+            <span class="carrier">Bell</span>
+          </span>
+                <span class="clock">20:49</span>
+          <span>
+            <span>3G</span>
+            <span class="icon-ios6-alarm"></span>
+            <span class="icon-ios6-locate"></span>
+            <span class="icon-ios6-lock"></span>
+            <span class="icon-ios6-battery"></span>
+          </span>
+            </div>
+
+            <div class="cl-page container-fluid" ng-controller="EntertainController">
+                <div class="cl-bar-title">
+                    <div class="cl-title">Home</div>
+                </div>
+                <div class="cl-content">
+                    <div>
+                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        </button>
+                        <span class="float-middle">Ankit Agarwal</span>
+                        <a href="index.html" class="float-right">Logout</a>
+                    </div>
+                    <div class="cl-article cl-article-centered">
+                        <span class="col-sm-1" ng-click="prev()">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </span>
+                        <span class="col-sm-10">
+                            {{content}}
+                        </span>
+                        <span class="col-sm-1">
+                            <a href="#" aria-label="Next" ng-click="next()">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="row">
+                    </div>
+                    <div>
+                        <button type="button" ng-click="toggle_thumbsup()">
+                            <span class="glyphicon glyphicon-large glyphicon-thumbs-up col-xs-6 {{thumbsup}}"></span>
+                        </button>
+                        <button type="button" ng-click="toggle_thumbsdown()">
+                            <span class="glyphicon glyphicon-large glyphicon-thumbs-down col-xs-6 {{thumbsdown}}"></span>
+                        </button>
+                    </div>
+                    <div>
+                        <p>Share on:</p>
+                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="icon"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

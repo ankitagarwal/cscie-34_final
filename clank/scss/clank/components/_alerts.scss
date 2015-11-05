@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Alerts (iOS type alerts similar to a javascript alert)
+   ========================================================================== */
+
+.cl-alert {
+  width: 100%;
+  height: 100%; // this is 100% of .cl-content
+  position: absolute;
+
+  z-index: $cl-alert-z-index;
+  // Center within container
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  bottom: 0;
+
+  .cl-alert-box {
+    z-index: $cl-alert-box-z-index;
+
+    // positioning
+    margin: auto;
+    width: 90%;
+    padding: 12px 0 0;
+    @media all and (min-width: 768px) {
+      width: 300px;
+    }
+    text-align: center;
+    background: $very-light-color;
+    @include border-radius($border-radius);
+  }
+  .cl-alert-title {
+    font-size: 16px;
+    padding: 0 12px 6px;
+  }
+
+  .cl-alert-message {
+    padding: 4px 12px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .cl-alert-title,
+  .cl-alert-message {
+    margin: 0;
+  }
+  // Make buttons and button group more minimal
+  // Instead of undoing button code maybe this should be written from scratch
+  .cl-alert-btn-group {
+    padding: 0;
+    border-top: 1px solid #B3B5B9;
+    display: -webkit-flex;
+    display: flex;
+  }
+  .cl-alert-btn {
+    -webkit-flex: 1;
+    flex: 1;
+    color: $accent-color;
+    padding: 12px 0;
+    font-size: 17px;
+    &:hover,
+    &:active,
+    &:focus {
+      background: rgba($accent-color, 0.25);
+    }
+    &:first-child {
+      border-right: 1px solid #B3B5B9;
+      @include border-bottom-left-radius($border-radius);
+    }
+    &:last-child {
+      font-weight: 700;
+      @include border-bottom-right-radius($border-radius);
+    }
+  }
+
+}

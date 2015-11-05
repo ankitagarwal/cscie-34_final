@@ -1,0 +1,19 @@
+input {
+    padding: 5%
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+span.glyphicon-large{
+    font-size: 4em;
+}
+.container-fluid.cl-page {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.blackicon {
+    color:black
+}

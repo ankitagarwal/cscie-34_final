@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Clank</title>
+
+  <link rel="stylesheet" href="css/clank.css" media="screen">
+
+  <script src="bower_components/jquery/jquery.min.js"></script>
+  <script src="bower_components/jquery.extendedinput.js/js/jquery.extendedinput.min.js"></script>
+  <script src="bower_components/state-loader/build/state-loader.js"></script>
+  
+  <script src="js/clank/ratchet/fingerblast.js"></script>
+  <script src="js/clank/ratchet/sliders.js"></script>
+  <script src="js/clank/ratchet/toggles.js"></script>
+  <script src="js/clank/clank.js"></script>
+  <script src="js/clank/state-loader.js"></script>
+
+  <script>
+    window.location = 'animation.html#page=states/page1.html&title=states/title1.html';
+  </script>
+  
+</head>
+<body>
+
+  <div class="cl-device-frame">
+
+    <div class="cl-device-wrap" data-os="ios" data-device="iphone4-portrait">
+
+      <div class="cl-device-body">
+
+        <div class="cl-ios-status">
+          <span>
+            <span class="signals">
+              <span class="signal1"></span>
+              <span class="signal2"></span>
+              <span class="signal3"></span>
+              <span class="signal4"></span>
+              <span class="signal5"></span>
+            </span>
+            <span class="carrier">Bell</span>
+          </span>
+          <span class="clock">20:49</span>
+          <span>
+            <span>3G</span>
+            <span class="icon-ios6-alarm"></span>
+            <span class="icon-ios6-locate"></span>
+            <span class="icon-ios6-lock"></span>
+            <span class="icon-ios6-battery"></span>
+          </span>
+        </div>
+
+        <div class="cl-page">
+          <div class="cl-bar-title" data-state-container='title'></div>
+          <div data-state-container='page' data-animate='cl-slide'></div>
+          <span data-state-container='pop' data-animate='cl-pop'></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

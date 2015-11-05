@@ -1,0 +1,22 @@
+{
+  "settings" : {
+    "feed_jokes": 1,
+    "feed_videos": 0,
+    "feed_movies": 0,
+    "feed_events": 0
+  },
+  "pages" : {
+    "home" : {
+      "content": "He was heavily into BDSM - Batman, Dungeons & Dragons, Star Trek and Mathematics.",
+      "like": 0
+    },
+    "home-next" : {
+      "content": "Next",
+      "like": 0
+    },
+    "home-prev" : {
+      "content": "Prev",
+      "like": 0
+    }
+  }
+}

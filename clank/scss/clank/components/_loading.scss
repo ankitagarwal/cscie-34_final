@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Loading spinner
+   ========================================================================== */
+
+// border size of small spinner
+$spinner-size: 2px;
+// border size of big spinner
+$spinner-big-size: 6px;
+
+
+@-webkit-keyframes rotation {
+   from {-webkit-transform: rotate(0deg);}
+   to {-webkit-transform: rotate(359deg);}
+}
+@-moz-keyframes rotation {
+   from {-moz-transform: rotate(0deg);}
+   to {-moz-transform: rotate(359deg);}
+}
+@-o-keyframes rotation {
+   from {-o-transform: rotate(0deg);}
+   to {-o-transform: rotate(359deg);}
+}
+@keyframes rotation {
+   from {transform: rotate(0deg);}
+   to {transform: rotate(359deg);}
+}
+
+
+.cl-loading-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+
+.cl-loading {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  position:relative;
+  -webkit-animation: rotation 1s infinite linear;
+  -moz-animation: rotation .1s infinite linear;
+  -o-animation: rotation 1s infinite linear;
+  animation: rotation 1s infinite linear;
+  border: $spinner-size solid rgba($accent-color,.15);
+  border-radius: 100%;
+  &:before {
+     content:"";
+     display:block;
+     position:absolute;
+     left:-$spinner-size;
+     top:-$spinner-size;
+     height: 100%;
+     width: 100%;
+     border-top: $spinner-size solid rgba($accent-color,.8);
+     border-left: $spinner-size solid transparent;
+     border-bottom: $spinner-size solid transparent;
+     border-right: $spinner-size solid transparent;
+     border-radius: 100%;
+  }
+}
+
+.cl-loading-big {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  position:relative;
+  -webkit-animation: rotation 1s infinite linear;
+  -moz-animation: rotation .1s infinite linear;
+  -o-animation: rotation 1s infinite linear;
+  animation: rotation 1s infinite linear;
+  border: $spinner-big-size solid rgba($accent-color,.15);
+  border-radius: 100%;
+  &:before {
+     content:"";
+     display:block;
+     position:absolute;
+     left:-$spinner-big-size;
+     top:-$spinner-big-size;
+     height: 100%;
+     width: 100%;
+     border-top: $spinner-big-size solid rgba($accent-color,.8);
+     border-left: $spinner-big-size solid transparent;
+     border-bottom: $spinner-big-size solid transparent;
+     border-right: $spinner-big-size solid transparent;
+     border-radius: 100%;
+  }
+}

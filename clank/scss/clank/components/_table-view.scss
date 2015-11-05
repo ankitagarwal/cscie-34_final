@@ -1,0 +1,231 @@
+/* Table views
+   ========================================================================== */
+
+@mixin table-cell-skin {
+  background: $very-light-color;
+}
+
+@mixin table-cell-skin-hover {
+  &:hover,
+  &:active,
+  &:focus,
+  &.active {
+    color: $very-light-color;
+    a, .disclosure-help, .icon {
+      color: $very-light-color;
+    }
+    @if $gradient {
+      @include gradient-vertical(lighten($accent-color, 10%), $accent-color);
+    } @else {
+      background: $accent-color;
+    }
+    @if $text-shadows {
+      @include text-shadow-black;
+    }
+  }
+}
+
+/* ==========================================================================
+   Table view
+   ========================================================================== */
+
+.cl-table {
+  @include pie-clearfix;
+  @include unstyled;
+  margin: 10px 0;
+  width: 100%;
+  & + .cl-table {
+    padding-top: 0;
+  }
+}
+
+// Table view titles
+
+.cl-table-title {
+  padding: 0;
+  margin: 10px 10px 0 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: $medium-color;
+  & + .cl-table {
+    padding-top: 5px;
+    margin-top: 0;
+  }
+  & + .input-group {
+    padding-top: 5px;
+  }
+}
+
+
+// Table view cell
+.cl-table-cell {
+  font-size: 14px;
+  min-height: 44px;
+  position: relative;
+  width: 100%;
+  @include table-cell-skin;
+  @include table-cell-skin-hover;
+}
+
+.cl-table-row {
+  margin: 0 15px;
+  @include pie-clearfix;
+
+  // Flex for eq heights
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+
+  & > .cl-table-cell {
+    @include pie-clearfix;
+    &:first-child {
+      float: left;
+    }
+    &:last-child {
+      float: right;
+    }
+  }
+}
+
+.cl-table-row {
+  .cl-table-cell {
+    &:first-child {
+      @include calc(width, "50% - 1px");
+    }
+    &:last-child {
+      @include calc(width, "50%");
+    }
+  }
+  &.split-2-3 {
+    .cl-table-cell {
+      &:first-child {
+        @include calc(width, "40% - 1px");
+      }
+      &:last-child {
+        @include calc(width, "60% - 1px");
+      }
+    }
+  }
+  &.split-3-7 {
+    .cl-table-cell {
+      &:first-child {
+        @include calc(width, "30% - 1px");
+      }
+      &:last-child {
+        @include calc(width, "70%");
+      }
+    }
+  }
+  &.split-1-3 {
+    .cl-table-cell {
+      &:first-child {
+        @include calc(width, "25% - 1px");
+      }
+      &:last-child {
+        @include calc(width, "75%");
+      }
+    }
+  }
+}
+
+// Different components of a cell
+
+.cl-table-cell {
+  position: relative;
+  &:after {
+    content: " ";
+    width: 100%;
+    @include calc("width", "100% - 15px");
+    height: 0;
+    border-bottom: 1px solid #CCC;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &:last-of-type,
+  &.last-of-type {
+    &:after {
+      content: none;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 0 15px;
+    min-height: 44px;
+    color: $very-dark-color;
+    border: none;
+  }
+  
+  & > p {
+    display: block;
+    padding: 0 15px;
+    margin: 0;
+  }
+
+  // The main title
+  .label {
+    font-size: 16px;
+    line-height: 24px; // based on iOS @todo refactor android
+    margin: 0;
+    padding: 10px 0;
+    display: inline-block;
+  }
+  
+  // Secondary help
+  .disclosure-help {
+    font-weight: 400;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    color: #AAA;
+  }
+  
+  // Smaller meta info
+  .meta {
+    font-weight: 400;
+    @include opacity(0.66);
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  // Disclosure arrow
+  .icon-ios-arrow-right {
+    font-size: 19px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-weight: 700;
+    color: #AAA;
+  }
+
+}
+
+// Button at the bottom of a table e.g. to view all items
+
+.cl-table-view-btn {
+  @include pie-clearfix;
+  @include table-cell-skin;
+  @if $text-shadows {
+    @include text-shadow-white;
+  }
+  width: 100%;
+  line-height: 33px;
+  font-size: 12px;
+  text-align: center;
+  position: relative; // move up in z-index stack above shadow
+  top: 0;
+  & > a {
+    display: block;
+    color: $accent-color;
+    &:hover {
+      background: $accent-color;
+      color: $very-light-color; 
+    }
+  }
+}
