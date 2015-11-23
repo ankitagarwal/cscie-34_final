@@ -1,11 +1,12 @@
 var entertain = angular.module('Entertain', []);
 
-entertain.controller('EntertainController', ['$scope', function($scope) {
+entertain.controller('EntertainController', ['$scope', '$http', function($scope, $http) {
     $scope.json = '';
     $scope.content = 'Let us write some placeholder text here so we know what do replace when we need replacing stuff';
     $scope.current_page = 'home';
     $scope.thumbsup = '';
     $scope.thumbsdown = '';
+    $scope.logs = '';
 
     $scope.get_json = function() {
         $.ajax({
@@ -71,8 +72,10 @@ entertain.controller('EntertainController', ['$scope', function($scope) {
         var like = this.get_like(page);
         if (like == 0 || like == -1) {
             this.set_like(page, 1);
+            this.log("Page " + this.current_page + " Was given thumbs up on "+ new Date().getTime());
         } else {
             this.set_like(page, 0);
+            this.log("Thumbs up was removed from page " + this.current_page + " on "+ new Date().getTime());
         }
         this.update_like(page);
     };
@@ -82,8 +85,10 @@ entertain.controller('EntertainController', ['$scope', function($scope) {
         var like = this.get_like(page);
         if (like == 0 || like == 1) {
             this.set_like(page, -1);
+            this.log("Page " + this.current_page + " Was given thumbs up on "+ new Date().getTime());
         } else {
             this.set_like(page, 0);
+            this.log("Thumbs down was removed from page " + this.current_page + " on "+ new Date().getTime());
         }
         this.update_like(page);
     };
@@ -93,12 +98,15 @@ entertain.controller('EntertainController', ['$scope', function($scope) {
         switch (this.current_page) {
             case 'home':
                 this.current_page = 'home-next';
+                this.log("Page home-next visited on " + new Date().getTime());
                 break;
             case 'home-next':
                 this.current_page = 'home-next';
+                this.log("Page home-next visited on " + new Date().getTime());
                 break;
             case 'home-prev':
                 this.current_page = 'home';
+                this.log("Page home visited on " + new Date().getTime());
                 break;
         }
         this.update_content(this.current_page);
@@ -108,11 +116,14 @@ entertain.controller('EntertainController', ['$scope', function($scope) {
         switch (this.current_page) {
             case 'home':
                 this.current_page = 'home-prev';
+                this.log("Page home-prev visited on " + new Date().getTime());
                 break;
             case 'home-next':
+                this.log("Page home visited on " + new Date().getTime());
                 this.current_page = 'home';
                 break;
             case 'home-prev':
+                this.log("Page home-prev visited on " + new Date().getTime());
                 this.current_page = 'home-prev';
                 break;
         }
@@ -136,5 +147,9 @@ entertain.controller('EntertainController', ['$scope', function($scope) {
         }
         html += '</ul>';
         return html
-    }
+    };
+
+    $scope.log = function(log) {
+        $http.get('http://127.0.0.1/cscie-34_final/clank/files/logs.php?log=' + JSON.stringify(log));
+    };
 }]);
