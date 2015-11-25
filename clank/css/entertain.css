@@ -17,3 +17,7 @@ span.glyphicon-large{
 .blackicon {
     color:black
 }
+.centerBlock {
+    display: table;
+    margin: 0 auto;
+}
