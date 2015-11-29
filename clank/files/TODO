@@ -3,3 +3,8 @@ next/prev icons
 center align thumbs buttons
 settings page
 margin for email/password button
+active tab
+Add content for all tabs
+update page update apis to work with tabs
+Move get_json to constructor
+Align check boxes

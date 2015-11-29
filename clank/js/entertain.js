@@ -1,12 +1,56 @@
-var entertain = angular.module('Entertain', []);
+var entertain = angular.module('Entertain', ["pageslide-directive"]);
 
 entertain.controller('EntertainController', ['$scope', '$http', function($scope, $http) {
     $scope.json = '';
     $scope.content = 'Let us write some placeholder text here so we know what do replace when we need replacing stuff';
     $scope.current_page = 'home';
+    $scope.current_tab = 'jokes';
     $scope.thumbsup = '';
     $scope.thumbsdown = '';
     $scope.logs = '';
+    $scope.checked = false; // This will be binded using the ps-open attribute
+    $scope.settings_jokes  = true;
+    $scope.settings_movies = true;
+    $scope.settings_events = false;
+    $scope.settings_videos = false;
+
+    $scope.toggle_settings = function() {
+        $scope.checked = !$scope.checked
+    };
+
+    $scope.show_tabs = function() {
+        var count = 0;
+        if ($scope.settings_jokes) {
+            count++;
+        }
+        if ($scope.settings_movies) {
+            count++;
+        }
+        if ($scope.settings_events) {
+            count++;
+        }
+        if ($scope.settings_videos) {
+            count++;
+        }
+
+        if (count > 1) {
+            return true;
+        } else {
+            return false
+        }
+    };
+
+    $scope.is_tab_active = function(tab) {
+        if (tab === this.current_tab) {
+            return true;
+        }
+        return false;
+    };
+
+    $scope.switch_tab = function(tab) {
+        this.current_tab = tab;
+        //this.update_content(tab + "-home");
+    };
 
     $scope.get_json = function() {
         $.ajax({
@@ -132,7 +176,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
 
     $scope.get_nav_html = function() {
         var html = '<ul class="nav nav-tabs">';
-        settings = get_settings();
+        var settings = get_settings();
         if (settings.feed_jokes == 1) {
             html+= '<li><a href="#">Jokes</a></li>';
         }
