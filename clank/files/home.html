@@ -18,7 +18,11 @@
     <script src="../js/clank/ratchet/toggles.js"></script>
     <script src="../js/clank/clank.js"></script>
     <script src="../bower_components/angular-pageslide-directive/dist/angular-pageslide-directive.min.js"></script>
+    <script src="../bower_components/typeahead.js/dist/typeahead.jquery.min.js"></script>
+    <script src="../bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
+    <script src="../bower_components/typeahead.js/dist/bloodhound.min.js"></script>
     <script src="../js/entertain.js"></script>
+    <script src="../js/blood.js"></script>
 
 </head>
 <body>
@@ -64,7 +68,7 @@
                 <div class="cl-content row">
                     <!--Side bar-->
                     <div class="row">
-                        <pageslide ps-open="checked" ps-side="left" ps-container="settings">
+                        <pageslide ps-open="checked" ps-side="left" ps-container="settings" ps-size="100%">
                             <div class="row container-fluid">
                                 <div class="col-sm-4 col-sm-offset-4">
                                     <span>Settings</span>
@@ -76,9 +80,9 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="row container-fluid">
+                            <div>
                                 <span class="pointer_cursor col-sm-offset-1" ng-model="collapsed"
-                                ng-click="collapsed=!collapsed">Feed items</span>
+                                    ng-click="collapsed=!collapsed">Feed items</span>
                             </div>
                             <div ng-show="collapsed" class="collapse in row container-fluid">
                                 <div>
@@ -95,10 +99,58 @@
                                     <input type="checkbox" ng-model="settings_events" name="settings_events" id="settings_events">
                                 </div>
                             </div>
+
+                            <!--Search categories-->
+                            <div class="row container-fluid">
+                                <div id="bloodhound_joke" class="col-sm-offset-1">
+                                    <span class="col-sm-5"><label for="joke_category">Joke categories</label></span>
+                                    <span class="col-sm-6"><input name="joke_category" id="joke_category"
+                                        class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+                                </div>
+                            </div>
+                            <div class="row container-fluid">
+                                <div id="bloodhound_video" class="col-sm-offset-1">
+                                    <span class="col-sm-5"><label for="video_category">Videos categories</label></span>
+                                    <span class="col-sm-6"><input name="video_category" id="video_category"
+                                        class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+                                </div>
+                            </div>
+                            <div class="row container-fluid">
+                                <div id="bloodhound_events" class="col-sm-offset-1">
+                                    <span class="col-sm-5"><label for="events_category">Events categories</label></span>
+                                    <span class="col-sm-6"><input name="events_category" id="events_category"
+                                          class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+                                </div>
+                            </div>
+
+                            <!-- Movies section starts here-->
+                            <div>
+                                <span class="pointer_cursor col-sm-offset-1" ng-model="collapsed2"
+                                    ng-click="collapsed2=!collapsed2">Movies</span>
+                            </div>
+                            <div ng-show="collapsed2" class="collapse in row container-fluid">
+                                <div id="bloodhound_genre" class="col-sm-offset-2">
+                                    <span class="col-sm-4"><label for="genre_category">Genre</label></span>
+                                    <span class="col-sm-6"><input name="genre_category" id="genre_category"
+                                        class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+                                </div>
+
+                                <div id="bloodhound_director" class="col-sm-offset-2">
+                                    <span class="col-sm-4"><label for="director_category">Directors</label></span>
+                                    <span class="col-sm-6"><input name="director_category" id="director_category"
+                                        class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+                                </div>
+
+                                <div id="bloodhound_actor" class="col-sm-offset-2">
+                                    <span class="col-sm-4"><label for="actor_category">Actors</label></span>
+                                    <span class="col-sm-6"><input name="actor_category" id="actor_category"
+                                        class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+                                </div>
+                            </div>
+                            <!-- End of movies section-->
                         </pageslide>
                     </div>
                     <!--End of side bar-->
-
                     <!--Top navbar-->
                     <div class="row container-fluid">
                         <div class="col-sm-4 float-left">
@@ -161,13 +213,16 @@
                     <!--End of Thumbs up and down buttons-->
 
 
-                    <div class="row container-fluid">
+                    <div class="row container-fluid top-buffer">
                         <div class="col-sm-4">Share on:</div>
                     </div>
-                    <div class="row"></div>
                     <div class="row container-fluid">
-                        <div class="fb-share-button col-sm-4" data-href="https://developers.facebook.com/docs/plugins/"
-                             data-layout="icon"></div>
+                        <a class="col-sm-offset-2 col-sm-4"
+                           href="http://www.facebook.com/sharer/sharer.php?u=[URL]&title=[TITLE]"><img
+                                src="../images/images/fb-art.jpg" class="social"/></a>
+                        <a class="col-sm-3 col-sm-offset-1"
+                            href="http://twitter.com/intent/tweet?status=[TITLE]+[URL]"><img
+                            src="../images/images/twitter.png" class="social"/></a>
                     </div>
                 </div>
             </div>
@@ -179,3 +234,4 @@
 
 </body>
 </html>
+<script src="../js/blood-footer.js"></script>

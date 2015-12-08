@@ -6,15 +6,15 @@
     "feed_events": 0
   },
   "pages" : {
-    "home" : {
+    "jokes-home" : {
       "content": "He was heavily into BDSM - Batman, Dungeons & Dragons, Star Trek and Mathematics.",
       "like": 0
     },
-    "home-next" : {
+    "jokes-home-next" : {
       "content": "Next",
       "like": 0
     },
-    "home-prev" : {
+    "jokes-home-prev" : {
       "content": "Prev",
       "like": 0
     }

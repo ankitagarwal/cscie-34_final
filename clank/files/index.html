@@ -6,6 +6,8 @@
 
   <link rel="stylesheet" href="../css/clank.css" media="screen">
   <link rel="stylesheet" href="../css/entertain.css" media="screen">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 
   <script src="../bower_components/jquery/jquery.min.js"></script>
   <script src="../bower_components/jquery.extendedinput.js/js/jquery.extendedinput.min.js"></script>
@@ -51,7 +53,17 @@
           <div class="cl-content">
             <div class="cl-article cl-article-centered">
               <p>Login using:</p>
-              <p>Login using email/password:</p>
+              <div class="row container-fluid">
+                <a class="col-sm-offset-2 col-sm-4"
+                   href="home.html"><img
+                        src="../images/images/fb-art.jpg" class="social"/></a>
+                <a class="col-sm-3 col-sm-offset-1"
+                   href="home.html"><img
+                        src="../images/images/twitter.png" class="social"/></a>
+              </div>
+              <div class="cl-form cl-article cl-article-centered">
+                  <span class="top-buffer">Login using email/password:</span>
+              </div>
               <div class="cl-form cl-article cl-article-centered">
                 <!-- Form fields here -->
                 <input type="text" placeholder="Email id"/>

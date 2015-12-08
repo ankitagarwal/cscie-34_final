@@ -3,8 +3,9 @@ var entertain = angular.module('Entertain', ["pageslide-directive"]);
 entertain.controller('EntertainController', ['$scope', '$http', function($scope, $http) {
     $scope.json = '';
     $scope.content = 'Let us write some placeholder text here so we know what do replace when we need replacing stuff';
-    $scope.current_page = 'home';
     $scope.current_tab = 'jokes';
+    $scope.page = 'home';
+    $scope.current_page = 'jokes-home';
     $scope.thumbsup = '';
     $scope.thumbsdown = '';
     $scope.logs = '';
@@ -13,6 +14,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     $scope.settings_movies = true;
     $scope.settings_events = false;
     $scope.settings_videos = false;
+    $scope.items = ["Test", "alu", "testy", "tessst", "test1"];
 
     $scope.toggle_settings = function() {
         $scope.checked = !$scope.checked
@@ -85,6 +87,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     };
 
     $scope.update_content = function (page) {
+        console.log(page);
         this.content = this.get_content(page);
         this.update_like(page);
     };
@@ -112,6 +115,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
 
     $scope.toggle_thumbsup = function() {
         this.get_json(); // TODO
+        console.log(this.current_page);
         var page = this.current_page;
         var like = this.get_like(page);
         if (like == 0 || like == -1) {
@@ -139,17 +143,20 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
 
     $scope.next = function() {
         this.get_json(); // TODO
-        switch (this.current_page) {
+        switch (this.page) {
             case 'home':
-                this.current_page = 'home-next';
+                this.page = 'home-next';
+                this.current_page = this.current_tab + '-' + this.page;
                 this.log("Page home-next visited on " + new Date().getTime());
                 break;
             case 'home-next':
-                this.current_page = 'home-next';
+                this.page = 'home-next';
+                this.current_page = this.current_tab + '-' + this.page;
                 this.log("Page home-next visited on " + new Date().getTime());
                 break;
             case 'home-prev':
-                this.current_page = 'home';
+                this.page = 'home';
+                this.current_page = this.current_tab + '-' + this.page;
                 this.log("Page home visited on " + new Date().getTime());
                 break;
         }
@@ -157,18 +164,21 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     };
 
     $scope.prev = function() {
-        switch (this.current_page) {
+        switch (this.page) {
             case 'home':
-                this.current_page = 'home-prev';
+                this.page = 'home-prev';
+                this.current_page = this.current_tab + '-' + this.page;
                 this.log("Page home-prev visited on " + new Date().getTime());
                 break;
             case 'home-next':
                 this.log("Page home visited on " + new Date().getTime());
-                this.current_page = 'home';
+                this.page = 'home';
+                this.current_page = this.current_tab + '-' + this.page;
                 break;
             case 'home-prev':
                 this.log("Page home-prev visited on " + new Date().getTime());
-                this.current_page = 'home-prev';
+                this.page = 'home-prev';
+                this.current_page = this.current_tab + '-' + this.page;
                 break;
         }
         this.update_content(this.current_page);
