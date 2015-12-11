@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    <title>State-loader</title>
+    <style>
+      .cl-animation-reverse {
+        -webkit-animation-direction: reverse;
+      }
+
+      @-webkit-keyframes slidein {
+        from {
+          margin-left: 100%; 
+        }
+
+        to {
+          margin-left: 0;
+        }
+      }
+
+      @-webkit-keyframes slideout {
+        from {
+          margin-left: 0; 
+        }
+
+        to {
+          margin-left: -100%
+        }
+      }
+
+      *[class*=slide-] {
+        width: 100%;
+      }
+
+      .slide-enter {
+        -webkit-animation-name: slidein;
+        -webkit-animation-duration: 1s;
+      }
+
+      .slide-leave {
+        -webkit-animation-name: slideout;
+        -webkit-animation-duration: 1s;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div data-state-container='header' data-animate='slide'></div>
+    <div data-state-container='page' data-animate='slide'></div>
+
+    <ul>
+      <li>
+        <a data-state-push='{ header: "states/header1.html" }'>header1.html -&gt; header</a>
+      </li>
+      <li>
+        <a data-state-push='{ header: "states/header2.html" }'>header2.html -&gt; header</a>
+      </li>
+      <li>
+        <a data-state-push='{ page: "states/page.html" }'>page.html -&gt; page</a>
+      </li>
+      <li>
+        <a data-state-push='{ page: "", header: "" }'>Clear all containers</a>
+      </li>
+    </ul>
+
+    <script src='jquery.js'></script>
+    <script src='../querystring.js'></script>
+    <script src='../state-hash-change.js'></script>
+    <script src='../state-push.js'></script>
+    <script src='../state-container.js'></script>
+    <script src='../state-animation.js'></script>
+    <script src='index.js'></script>
+    
+  </body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "jquery.extendedinput",
+  "version": "1.1.0",
+  "main": "js/jquery.extendedinput.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": ">=1.8.0"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "~3.0.2"
+  }
+}
