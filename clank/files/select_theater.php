@@ -69,6 +69,7 @@
                             </button>
                         </div>
                         <div class="col-sm-4">
+                            <input name="date" type="hidden" ng-model="dt" value={{dt}} />
                             <button type="submit" class="float-right btn-primary">
                                 Continue
                             </button>

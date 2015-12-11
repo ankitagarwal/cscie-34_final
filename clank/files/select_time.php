@@ -1,3 +1,8 @@
+<?php
+    $cinema = $_GET['cinema'];
+    $date = $_GET['date'];
+    $date = date("d/m/y", time($date));
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,13 +44,13 @@
                     <form action="outofscope.php" method="get">
                     <div class="row cl-article cl-article-centered container-fluid">
                         <span class="col-sm-offset-1">Select a theater you like:-</span> <br />
-                        <label class="col-sm-offset-1 top-buffer">{{cinema}}, {{dt}}, 10am (45 seats available)<input type="radio"
+                        <label class="col-sm-offset-1 top-buffer"><?php echo $cinema . ", " . $date ?>, 10am (45 seats available)
+                                <input type="radio" name="time" /></label>
+                        <label class="col-sm-offset-1 top-buffer"><?php echo $cinema . ", " . $date ?>, 1pm (24 seats available)<input type="radio"
                                 name="time" /></label>
-                        <label class="col-sm-offset-1 top-buffer">{{cinema}}, {{dt}}, 1pm (24 seats available)<input type="radio"
+                        <label class="col-sm-offset-1 top-buffer"><?php echo $cinema . ", " . $date ?>, 4pm (3 seats available)<input type="radio"
                                 name="time" /></label>
-                        <label class="col-sm-offset-1 top-buffer">{{cinema}}, {{dt}}, 4pm (3 seats available)<input type="radio"
-                                name="time" /></label>
-                        <label class="col-sm-offset-1 top-buffer">{{cinema}}, {{dt}}, 9pm (56 seats available)<input type="radio"
+                        <label class="col-sm-offset-1 top-buffer"><?php echo $cinema . ", " . $date ?>, 9pm (56 seats available)<input type="radio"
                                 name="time" /></label>
                     </div>
                     <div class="row container-fluid top-buffer">
