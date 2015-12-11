@@ -2,7 +2,7 @@ var joke_engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     // `states` is an array of state names defined in "The Basics"
-    local: ["test", "testyyy", "As", "Testt"]
+    local: ["Doctor", "Food", "Dark Humor", "Adult", "Geek", "Adult Geek", "Dad Jokes"]
 });
 
 var promise = joke_engine.initialize();
@@ -29,7 +29,7 @@ var video_engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     // `states` is an array of state names defined in "The Basics"
-    local: ["test", "testyyy", "As", "Testt"]
+    local: ["Funny", "Cat", "Educational", "Standups", "Ted Talks", "Talks", "Trailers"]
 });
 
 promise = video_engine.initialize();
@@ -56,7 +56,7 @@ var events_engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     // `states` is an array of state names defined in "The Basics"
-    local: ["test", "testyyy", "As", "Testt"]
+    local: ["Comicons", "Conferences", "Standups", "Dramas", "Theater"]
 });
 
 promise = events_engine.initialize();
@@ -82,7 +82,7 @@ var genre_engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     // `states` is an array of state names defined in "The Basics"
-    local: ["test", "testyyy", "As", "Testt"]
+    local: ["Action", "Adventure", "Comedy", "Crime", "Fantasy", "Historical", "Horror", "Mystery", "Political", "Romance", "Science Fiction", "Thriller"]
 });
 
 promise = genre_engine.initialize();
