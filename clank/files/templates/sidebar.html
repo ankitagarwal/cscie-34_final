@@ -1,0 +1,113 @@
+<div class="row">
+    <pageslide ps-open="checked" ps-side="left" ps-container="settings" ps-size="100%">
+        <div class="row container-fluid">
+            <div class="col-sm-4 col-sm-offset-4">
+                <span>Settings</span>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-default float-right" aria-label="Left Align"
+                        ng-click="toggle_settings()">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+        <div>
+            <span class="pointer_cursor col-sm-offset-1" ng-model="collapsed"
+                                      ng-click="collapsed=!collapsed">Feed items</span>
+        </div>
+        <div ng-show="collapsed" class="collapse in row container-fluid">
+            <div class="row container-fluid">
+                <label class="col-sm-offset-2" for="settings_jokes">Enable Jokes &nbsp
+                <input type="checkbox" ng-model="settings_jokes" name="settings_jokes" id="settings_jokes"></label>
+
+                <label class="col-sm-offset-2" for="settings_videos">Enable Videos
+                <input type="checkbox" ng-model="settings_videos" name="settings_videos" id="settings_videos"></label>
+
+                <label class="col-sm-offset-2" for="settings_movies">Enable Movies
+                <input type="checkbox" ng-model="settings_movies" name="settings_movies" id="settings_movies"></label>
+
+                <label class="col-sm-offset-2" for="settings_events">Enable Events
+                <input type="checkbox" ng-model="settings_events" name="settings_events" id="settings_events"></label>
+            </div>
+        </div>
+
+        <!--Search categories-->
+        <div class="row container-fluid">
+            <div id="bloodhound_joke" class="col-sm-offset-1 row container-fluid">
+                <span class="col-sm-5"><label for="joke_category">Joke categories</label></span>
+                <span class="col-sm-6"><input name="joke_category" id="joke_category"
+                    class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+            </div>
+            <div class="row container-fluid col-sm-offset-1">
+                <span ng-repeat="(key, value) in settings_jokes_selected">
+                    {{value}} X
+                </span>
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div id="bloodhound_video" class="col-sm-offset-1 row container-fluid">
+                <span class="col-sm-5"><label for="video_category">Videos categories</label></span>
+                                    <span class="col-sm-6"><input name="video_category" id="video_category"
+                                                                  class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+            </div>
+            <div class="row container-fluid col-sm-offset-1">
+                <span ng-repeat="(key, value) in settings_videos_selected">
+                    {{value}} X
+                </span>
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div id="bloodhound_events" class="col-sm-offset-1 row container-fluid">
+                <span class="col-sm-5"><label for="events_category">Events categories</label></span>
+                                    <span class="col-sm-6"><input name="events_category" id="events_category"
+                                                                  class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+            </div>
+            <div class="row container-fluid col-sm-offset-1">
+                <span ng-repeat="(key, value) in settings_events_selected">
+                    {{value}} X
+                </span>
+            </div>
+        </div>
+
+        <!-- Movies section starts here-->
+        <div>
+                                <span class="pointer_cursor col-sm-offset-1" ng-model="collapsed2"
+                                      ng-click="collapsed2=!collapsed2">Movies</span>
+        </div>
+        <div ng-show="collapsed2" class="collapse in row container-fluid">
+            <div id="bloodhound_genre" class="col-sm-offset-2 row container-fluid">
+                <span class="col-sm-4"><label for="genre_category">Genre</label></span>
+                                    <span class="col-sm-6"><input name="genre_category" id="genre_category"
+                                                                  class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+            </div>
+            <div class="row container-fluid col-sm-offset-2">
+                <span ng-repeat="(key, value) in settings_genre_selected">
+                    {{value}} X
+                </span>
+            </div>
+
+            <div id="bloodhound_director" class="col-sm-offset-2 row container-fluid">
+                <span class="col-sm-4"><label for="director_category">Directors</label></span>
+                                    <span class="col-sm-6"><input name="director_category" id="director_category"
+                                                                  class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+            </div>
+            <div class="row container-fluid col-sm-offset-2 row container-fluid">
+                <span ng-repeat="(key, value) in settings_directors_selected">
+                    {{value}} X
+                </span>
+            </div>
+
+            <div id="bloodhound_actor" class="col-sm-offset-2 row container-fluid">
+                <span class="col-sm-4"><label for="actor_category">Actors</label></span>
+                                    <span class="col-sm-6"><input name="actor_category" id="actor_category"
+                                                                  class="typeahead col-sm-11" type="text" placeholder="Start typing..."></span>
+            </div>
+            <div class="row container-fluid col-sm-offset-2">
+                <span ng-repeat="(key, value) in settings_actors_selected">
+                    {{value}} X
+                </span>
+            </div>
+        </div>
+        <!-- End of movies section-->
+    </pageslide>
+</div>

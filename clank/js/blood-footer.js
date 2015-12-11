@@ -19,7 +19,10 @@ $('#bloodhound_joke .typeahead').typeahead({
     {
         name: 'states',
         source: joke_engine.ttAdapter()
-    });
+    }).on('typeahead:selected typeahead:autocompleted', function(e, datum) {
+        angular.element('[ng-controller=EntertainController]').scope().add_category(datum, 'settings_jokes_selected');
+        angular.element('[ng-controller=EntertainController]').scope().$apply();
+});
 
 
 var video_engine = new Bloodhound({
@@ -43,6 +46,9 @@ $('#bloodhound_video .typeahead').typeahead({
     {
         name: 'states',
         source: video_engine.ttAdapter()
+    }).on('typeahead:selected typeahead:autocompleted', function(e, datum) {
+        angular.element('[ng-controller=EntertainController]').scope().add_category(datum, 'settings_videos_selected');
+        angular.element('[ng-controller=EntertainController]').scope().$apply();
     });
 
 
@@ -67,6 +73,9 @@ $('#bloodhound_events .typeahead').typeahead({
     {
         name: 'states',
         source: events_engine.ttAdapter()
+    }).on('typeahead:selected typeahead:autocompleted', function(e, datum) {
+        angular.element('[ng-controller=EntertainController]').scope().add_category(datum, 'settings_events_selected');
+        angular.element('[ng-controller=EntertainController]').scope().$apply();
     });
 
 var genre_engine = new Bloodhound({
@@ -90,6 +99,9 @@ $('#bloodhound_genre .typeahead').typeahead({
     {
         name: 'states',
         source: genre_engine.ttAdapter()
+    }).on('typeahead:selected typeahead:autocompleted', function(e, datum) {
+        angular.element('[ng-controller=EntertainController]').scope().add_category(datum, 'settings_genre_selected');
+        angular.element('[ng-controller=EntertainController]').scope().$apply();
     });
 
 
@@ -115,6 +127,9 @@ $('#bloodhound_director .typeahead').typeahead({
     {
         name: 'states',
         source: director_engine.ttAdapter()
+    }).on('typeahead:selected typeahead:autocompleted', function(e, datum) {
+        angular.element('[ng-controller=EntertainController]').scope().add_category(datum, 'settings_directors_selected');
+        angular.element('[ng-controller=EntertainController]').scope().$apply();
     });
 
 
@@ -139,4 +154,7 @@ $('#bloodhound_actor .typeahead').typeahead({
     {
         name: 'states',
         source: actor_engine.ttAdapter()
+    }).on('typeahead:selected typeahead:autocompleted', function(e, datum) {
+        angular.element('[ng-controller=EntertainController]').scope().add_category(datum, 'settings_actors_selected');
+        angular.element('[ng-controller=EntertainController]').scope().$apply();
     });

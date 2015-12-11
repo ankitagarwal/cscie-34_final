@@ -1,4 +1,4 @@
-var entertain = angular.module('Entertain', ["pageslide-directive"]);
+var entertain = angular.module('Entertain', ["pageslide-directive", "ui.bootstrap.datepicker"]);
 
 entertain.controller('EntertainController', ['$scope', '$http', function($scope, $http) {
     $scope.json = '';
@@ -12,10 +12,101 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     $scope.checked = false; // This will be binded using the ps-open attribute
     $scope.settings_jokes  = true;
     $scope.settings_movies = true;
-    $scope.settings_events = false;
-    $scope.settings_videos = false;
+    $scope.settings_events = true;
+    $scope.settings_videos = true;
     $scope.items = ["Test", "alu", "testy", "tessst", "test1"];
+    $scope.myDate = new Date();
+    $scope.cinema = '';
+    $scope.dt = new Date();
 
+    $scope.settings_jokes_selected = [];
+    $scope.settings_movies_selected = [];
+    $scope.settings_events_selected = [];
+    $scope.settings_videos_selected = [];
+
+    $scope.settings_actors_selected = [];
+    $scope.settings_directors_selected = [];
+    $scope.settings_genre_selected = [];
+
+    $scope.jokes_search = '';
+    $scope.videos_search = '';
+    $scope.events_search = '';
+    $scope.movies_search = '';
+    $scope.actors_search = '';
+    $scope.directors_search = '';
+    $scope.genre_search = '';
+
+    $scope.today = function() {
+        $scope.dt = new Date();
+    };
+    $scope.today();
+
+    $scope.clear = function () {
+        $scope.dt = null;
+    };
+
+    // Disable weekend selection
+    $scope.disabled = function(date, mode) {
+        return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+    };
+
+    $scope.toggleMin = function() {
+        $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+    $scope.maxDate = new Date(2020, 5, 22);
+
+    $scope.open = function($event) {
+        $scope.status.opened = true;
+    };
+
+    $scope.setDate = function(year, month, day) {
+        $scope.dt = new Date(year, month, day);
+    };
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    };
+
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+
+    $scope.status = {
+        opened: false
+    };
+
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date();
+    afterTomorrow.setDate(tomorrow.getDate() + 2);
+    $scope.events =
+        [
+            {
+                date: tomorrow,
+                status: 'full'
+            },
+            {
+                date: afterTomorrow,
+                status: 'partially'
+            }
+        ];
+
+    $scope.getDayClass = function(date, mode) {
+        if (mode === 'day') {
+            var dayToCheck = new Date(date).setHours(0,0,0,0);
+
+            for (var i=0;i<$scope.events.length;i++){
+                var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
+
+                if (dayToCheck === currentDay) {
+                    return $scope.events[i].status;
+                }
+            }
+        }
+
+        return '';
+    };
     $scope.toggle_settings = function() {
         $scope.checked = !$scope.checked
     };
@@ -49,9 +140,16 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
         return false;
     };
 
+    $scope.show_movies_control = function() {
+        if (this.current_tab == "movies") {
+            return true;
+        }
+        return false;
+    };
+
     $scope.switch_tab = function(tab) {
         this.current_tab = tab;
-        //this.update_content(tab + "-home");
+        this.update_content(tab + "-home");
     };
 
     $scope.get_json = function() {
@@ -65,6 +163,17 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
                 $scope.json = response;
             }
         });
+    };
+
+    $scope.get_json_and_init_page = function() {
+        this.get_json();
+        this.update_content(this.current_page);
+    };
+
+    $scope.add_category = function(val, category) {
+        console.log("yipp");
+        $scope[category].push(val);
+        console.log(this[category]);
     };
 
     $scope.get_settings = function(setting) {
@@ -82,7 +191,6 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     };
 
     $scope.get_content = function (page) {
-
         return this.json.pages[page].content
     };
 
@@ -114,7 +222,6 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     };
 
     $scope.toggle_thumbsup = function() {
-        this.get_json(); // TODO
         console.log(this.current_page);
         var page = this.current_page;
         var like = this.get_like(page);
@@ -142,7 +249,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     };
 
     $scope.next = function() {
-        this.get_json(); // TODO
+        console.log("Old page was " + this.page);
         switch (this.page) {
             case 'home':
                 this.page = 'home-next';
@@ -160,10 +267,12 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
                 this.log("Page home visited on " + new Date().getTime());
                 break;
         }
+        console.log("New page is " + this.page + this.current_page);
         this.update_content(this.current_page);
     };
 
     $scope.prev = function() {
+        console.log("Old page was " + this.page);
         switch (this.page) {
             case 'home':
                 this.page = 'home-prev';
@@ -181,6 +290,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
                 this.current_page = this.current_tab + '-' + this.page;
                 break;
         }
+        console.log("New page is " + this.page);
         this.update_content(this.current_page);
     };
 
@@ -207,3 +317,13 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
         $http.get('http://127.0.0.1/cscie-34_final/clank/files/logs.php?log=' + JSON.stringify(log));
     };
 }]);
+
+entertain.filter('unsafe', function($sce) {
+    return function(val) {
+        return $sce.trustAsHtml(val);
+    };
+});
+
+//function add_category(datum) {
+//    angular.element('#EntertainController').scope().add_category(datum, 'settings_jokes_selected');
+//}

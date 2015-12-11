@@ -38,6 +38,83 @@ body {
 .top-buffer {
     margin-top:20px;
 }
+.vert-allign {
+    text-align: center;
+}
+
+.vert-allign:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.vert-allign > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+label{
+    vertical-align: middle;
+}
+input[type="radio"], input[type="checkbox"]{
+    float:left;
+}
+
+.datepickerdemoBasicUsage {
+    /** Demo styles for mdCalendar. */ }
+.datepickerdemoBasicUsage md-content {
+    padding-bottom: 200px;
+}
+.datepickerdemoBasicUsage .validation-messages {
+    font-size: 11px;
+    color: darkred;
+    margin: 10px 0 0 25px;
+}
+
+.tt-query {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+.tt-hint {
+    color: #999999;
+}
+
+.tt-menu {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    margin: 12px 0px;
+    padding: 8px 0px;
+    width: 100%;
+}
+
+.tt-suggestion {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 3px 20px;
+}
+
+.tt-suggestion:hover {
+    background-color: #0097cf;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.tt-suggestion.tt-cursor {
+    background-color: #0097cf;
+    color: #ffffff;
+}
+
+.tt-suggestion p {
+    margin: 0px;
+}
+
+.gist {
+    font-size: 14px;
+}
 
 
 /* Needed for hiding crollbars when pushing */
