@@ -110,7 +110,7 @@ var director_engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     // `states` is an array of state names defined in "The Basics"
-    local: ["test", "testyyy", "As", "Testt"]
+    local: ["Steven spielberg", "Alfred Hitchcock", "Christopher Nolan", "James Cameron"]
 });
 
 promise = director_engine.initialize();
@@ -137,7 +137,9 @@ var actor_engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     // `states` is an array of state names defined in "The Basics"
-    local: ["test", "testyyy", "As", "Testt"]
+    local: ["Johnny Depp", "Leonardo DiCaprio", "Tom Hanks", "Al Pacino", "Tom Cruise", "Brad Pitt", "Robert De Niro", "Angilena" +
+    " Jolie", "Nicole Kidman", "Kate Winslet", "Scarlett Johansso"]
+
 });
 
 promise = actor_engine.initialize();

@@ -176,6 +176,11 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
         console.log(this[category]);
     };
 
+    $scope.remove_category = function(val, category) {
+        var index = $scope[category].indexOf(val);
+        $scope[category].splice(index, 1);
+    };
+
     $scope.get_settings = function(setting) {
         if (setting) {
             return json.settings.setting

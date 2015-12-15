@@ -94,22 +94,22 @@
                     <!--Thumbs up and down buttons-->
                     <div class="row container-fluid top-buffer">
                         <div class="col-sm-6">
-                            <button type="button" ng-click="toggle_thumbsup()" class="float-right">
-                                <span class="glyphicon glyphicon-large glyphicon-thumbs-up col-xs-6 {{thumbsup}}"></span>
+                            <button class="{{thumbsup}} float-right" type="button" ng-click="toggle_thumbsup()">
+                                <span class="glyphicon glyphicon-large glyphicon-thumbs-up col-xs-6"></span>
                             </button>
                         </div>
                         <div class="col-sm-6">
-                            <button type="button" ng-click="toggle_thumbsdown()">
-                                <span class="glyphicon glyphicon-large glyphicon-thumbs-down col-xs-6 {{thumbsdown}}"></span>
+                            <button class="{{thumbsdown}}" type="button" ng-click="toggle_thumbsdown()">
+                                <span class="glyphicon glyphicon-large glyphicon-thumbs-down col-xs-6"></span>
                             </button>
                         </div>
                     </div>
                     <!--End of Thumbs up and down buttons-->
 
-                    <div class="row container-fluid top-buffer">
-                        <div class="col-sm-4">Share on:</div>
+                    <div class="row container-fluid top-buffer-large">
+                        <div class="col-sm-4 col-sm-offset-1 font-larger">Share on:</div>
                     </div>
-                    <div class="row container-fluid">
+                    <div class="row container-fluid top-buffer">
                         <a class="col-sm-offset-2 col-sm-4"
                            href="http://www.facebook.com/sharer/sharer.php?u=[URL]&title=[TITLE]"><img
                                 src="../images/images/fb-art.jpg" class="social"/></a>
