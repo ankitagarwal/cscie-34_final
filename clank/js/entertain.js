@@ -171,9 +171,10 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     };
 
     $scope.add_category = function(val, category) {
-        console.log("yipp");
-        $scope[category].push(val);
-        console.log(this[category]);
+        if ($scope[category].indexOf(val) === -1) {
+            $scope[category].push(val);
+            console.log(this[category]);
+        }
     };
 
     $scope.remove_category = function(val, category) {
@@ -197,6 +198,10 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
 
     $scope.get_content = function (page) {
         return this.json.pages[page].content
+    };
+
+    $scope.get_category = function () {
+        return this.json.pages[this.current_page].category
     };
 
     $scope.update_content = function (page) {

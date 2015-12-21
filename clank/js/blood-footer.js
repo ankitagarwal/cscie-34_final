@@ -56,7 +56,7 @@ var events_engine = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     // `states` is an array of state names defined in "The Basics"
-    local: ["Comicons", "Conferences", "Standups", "Dramas", "Theater"]
+    local: ["Comicons", "Conferences", "Standups", "Dramas", "Theater", "Meetups"]
 });
 
 promise = events_engine.initialize();

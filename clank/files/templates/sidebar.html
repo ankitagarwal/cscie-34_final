@@ -11,14 +11,14 @@
                 </button>
             </div>
         </div>
-        <div class="pointer_cursor top-buffer" ng-model="collapsed" ng-click="collapsed=!collapsed">
+        <div class="row pointer_cursor top-buffer" ng-model="collapsed" ng-click="collapsed=!collapsed">
             <span class="col-sm-offset-1 col-sm-5" >Feed items</span>
             <span class="col-sm-offset-4 col-sm-2 glyphicon glyphicon-menu-right" ng-if="!collapsed"></span>
             <span class="col-sm-offset-4 col-sm-2 glyphicon glyphicon-menu-down" ng-if="collapsed"></span>
         </div>
         <div ng-show="collapsed" class="collapse in row container-fluid">
             <div class="row container-fluid">
-                <label class="col-sm-offset-2" for="settings_jokes">Enable Jokes &nbsp
+                <label class="col-sm-offset-2 tob-buffer" for="settings_jokes">Enable Jokes &nbsp
                 <input type="checkbox" ng-model="settings_jokes" name="settings_jokes" id="settings_jokes"></label>
 
                 <label class="col-sm-offset-2" for="settings_videos">Enable Videos
@@ -34,79 +34,79 @@
 
         <!--Search categories-->
         <div class="row container-fluid">
-            <div id="bloodhound_joke" class="col-sm-offset-1 row container-fluid">
-                <span class="col-sm-5"><label for="joke_category">Joke categories</label></span>
+            <div id="bloodhound_joke" class="col-sm-offset-0 row container-fluid top-buffer">
+                <span class="col-sm-6"><label for="joke_category">Joke categories</label></span>
                 <span class="col-sm-6"><input name="joke_category" id="joke_category"
                     class="typeahead col-sm-11 search-form" type="text" placeholder="Search"></span>
             </div>
-            <div class="row container-fluid col-sm-offset-1">
-                <span ng-repeat="(key, value) in settings_jokes_selected">
+            <div class="row container-fluid border" ng-if="settings_jokes_selected.length">
+                <span class="col-sm-offset-1" ng-repeat="(key, value) in settings_jokes_selected">
                     {{value}} <span class="pointer_cursor" ng-click="remove_category(value, 'settings_jokes_selected')">X</span>
                 </span>
             </div>
         </div>
         <div class="row container-fluid">
-            <div id="bloodhound_video" class="col-sm-offset-1 row container-fluid">
-                <span class="col-sm-5"><label for="video_category">Videos categories</label></span>
+            <div id="bloodhound_video" class="col-sm-offset-0 row container-fluid">
+                <span class="col-sm-6"><label for="video_category">Videos categories</label></span>
                                     <span class="col-sm-6"><input name="video_category" id="video_category"
                                                                   class="typeahead col-sm-11 search-form" type="text"
                                                                   placeholder="Search"></span>
             </div>
-            <div class="row container-fluid col-sm-offset-1">
-                <span ng-repeat="(key, value) in settings_videos_selected">
+            <div class="row container-fluid border" ng-if="settings_videos_selected.length">
+                <span class="col-sm-offset-1" ng-repeat="(key, value) in settings_videos_selected">
                     {{value}} <span class="pointer_cursor" ng-click="remove_category(value, 'settings_videos_selected')">X</span>
                 </span>
             </div>
         </div>
         <div class="row container-fluid">
-            <div id="bloodhound_events" class="col-sm-offset-1 row container-fluid">
-                <span class="col-sm-5"><label for="events_category">Events categories</label></span>
+            <div id="bloodhound_events" class="col-sm-offset-0 row container-fluid">
+                <span class="col-sm-6"><label for="events_category">Events categories</label></span>
                                     <span class="col-sm-6"><input name="events_category" id="events_category"
                                                                   class="typeahead col-sm-11 search-form" type="text" placeholder="Search"></span>
             </div>
-            <div class="row container-fluid col-sm-offset-1">
-                <span ng-repeat="(key, value) in settings_events_selected">
+            <div class="row container-fluid border" ng-if="settings_events_selected.length">
+                <span class="col-sm-offset-1" ng-repeat="(key, value) in settings_events_selected">
                     {{value}} <span class="pointer_cursor" ng-click="remove_category(value, 'settings_events_selected')">X</span>
                 </span>
             </div>
         </div>
 
         <!-- Movies section starts here-->
-        <div class="pointer_cursor top-buffer" ng-model="collapsed2" ng-click="collapsed2=!collapsed2">
+        <div class="pointer_cursor row" ng-model="collapsed2" ng-click="collapsed2=!collapsed2">
             <span class="col-sm-offset-1 col-sm-5" >Movies</span>
             <span class="col-sm-offset-4 col-sm-2 glyphicon glyphicon-menu-right" ng-if="!collapsed2"></span>
             <span class="col-sm-offset-4 col-sm-2 glyphicon glyphicon-menu-down" ng-if="collapsed2"></span>
         </div>
         <div ng-show="collapsed2" class="collapse in row container-fluid">
-            <div id="bloodhound_genre" class="col-sm-offset-2 row container-fluid">
+            <div id="bloodhound_genre" class="col-sm-offset-1 row container-fluid">
                 <span class="col-sm-4"><label for="genre_category">Genre</label></span>
-                                    <span class="col-sm-6"><input name="genre_category" id="genre_category"
+                <span class="col-sm-6"><input name="genre_category" id="genre_category"
                                                                   class="typeahead col-sm-11 search-form" type="text" placeholder="Search"></span>
             </div>
-            <div class="row container-fluid col-sm-offset-2">
-                <span ng-repeat="(key, value) in settings_genre_selected">
+            <div class="row container-fluid col-sm-offset-1 border" ng-if="settings_genre_selected.length">
+                <span class="col-sm-offset-1" ng-repeat="(key, value) in settings_genre_selected">
                     {{value}} <span class="pointer_cursor" ng-click="remove_category(value, 'settings_genre_selected')">X</span>
                 </span>
             </div>
 
-            <div id="bloodhound_director" class="col-sm-offset-2 row container-fluid">
+            <div id="bloodhound_director" class="col-sm-offset-1 row container-fluid">
                 <span class="col-sm-4"><label for="director_category">Directors</label></span>
                                     <span class="col-sm-6"><input name="director_category" id="director_category"
                                                                   class="typeahead col-sm-11 search-form" type="text" placeholder="Search"></span>
             </div>
-            <div class="row container-fluid col-sm-offset-2 row container-fluid">
-                <span ng-repeat="(key, value) in settings_directors_selected">
+            <div class="row container-fluid row container-fluid border" ng-if="settings_directors_selected.length">
+                <span class="col-sm-offset-1" ng-repeat="(key, value) in settings_directors_selected">
                     {{value}} <span class="pointer_cursor" ng-click="remove_category(value, 'settings_directors_selected')">X</span>
                 </span>
             </div>
 
-            <div id="bloodhound_actor" class="col-sm-offset-2 row container-fluid">
+            <div id="bloodhound_actor" class="col-sm-offset-1 row container-fluid">
                 <span class="col-sm-4"><label for="actor_category">Actors</label></span>
-                                    <span class="col-sm-6"><input name="actor_category" id="actor_category"
+                <span class="col-sm-6"><input name="actor_category" id="actor_category"
                                                                   class="typeahead col-sm-11 search-form" type="text" placeholder="Search"></span>
             </div>
-            <div class="row container-fluid col-sm-offset-2">
-                <span ng-repeat="(key, value) in settings_actors_selected">
+            <div class="row container-fluid border" ng-if="settings_actors_selected.length">
+                <span class="col-sm-offset-1" ng-repeat="(key, value) in settings_actors_selected">
                     {{value}} <span class="pointer_cursor" ng-click="remove_category(value, 'settings_actors_selected')">X</span>
                 </span>
             </div>

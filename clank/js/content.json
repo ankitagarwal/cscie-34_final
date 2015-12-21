@@ -8,43 +8,53 @@
   "pages" : {
     "jokes-home" : {
       "content": "<p>He was heavily into BDSM - Batman, Dungeons & Dragons, Star Trek and Mathematics.</p>--50 Nerds of grey",
-      "like": 0
+      "like": 0,
+      "category": "Adult geek"
     },
     "jokes-home-next" : {
       "content": "<p>'Come over,' she begged. 'I need you right now!' 'Just turn it off and on again,' he sighed. He hated these late night rebooty calls.</p> --50 Nerds of Grey",
-      "like": 0
+      "like": 0,
+      "category": "Adult geek"
     },
     "jokes-home-prev" : {
       "content": "<p>Then outside he heard Such a terrible clatter He went straight onto Twitter To see what was the matter ...<p>--50 Nerds of Grey",
-      "like": 0
+      "like": 0,
+      "category": "Adult geek"
     },
     "videos-home" : {
       "content": "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/ZMGZQZRIsJE' frameborder='0' allowfullscreen></iframe>",
-      "like": 0
+      "like": 0,
+      "category": "Ted talks"
     },
     "videos-home-next" : {
       "content": "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/j_lMHiMwrG8' frameborder='0' allowfullscreen></iframe>",
-      "like": 0
+      "like": 0,
+      "category": "Standups"
     },
     "videos-home-prev" : {
       "content": "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/-yOXsK5-SFY' frameborder='0' allowfullscreen></iframe>",
-      "like": 0
+      "like": 0,
+      "category": "Ted talks"
     },
     "events-home" : {
       "content": "<b>Comicon Next generation</b><p>Meet actors from the best tv show of all time - Star Trek - Next Generation</p>",
-      "like": 0
+      "like": 0,
+      "category": "Comicon"
     },
     "events-home-next": {
       "content": "<b>Facebook Hackathon</b><p>Want to create something that amazes the whole world ? Come join us for a hackathon!</p>",
-      "like": 0
+      "like": 0,
+      "category": "Conferences"
     },
     "events-home-prev": {
       "content": "<b>Batman fans meetup</b><p>Calling all bats in the city to group up. It is time to attack Clark Cantt</p>",
-      "like": 0
+      "like": 0,
+      "category": "Meetups"
     },
     "movies-home": {
       "content": "<b>Batman Vs Superman</b><p>Is he human ?Is he God ? Does he have right to be one?</p>",
-      "like": 0
+      "like": 0,
+      "category": "Science Fiction"
     }
   }
 }
