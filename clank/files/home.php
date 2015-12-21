@@ -74,8 +74,8 @@
                             </span>
                         </div>
                         <div class="row container-fluid">
-                            <span class="col-sm-offset-6">Category:</span>
-                            <span class="greyfont">{{get_category()}}</span>
+                            <span class="col-sm-offset-5">Category:</span>
+                            <span class="greyfont" ng-bind="category"></span>
                         </div>
                     </div>
                     <!--End of main content-->

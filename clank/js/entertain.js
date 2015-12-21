@@ -6,6 +6,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     $scope.current_tab = 'jokes';
     $scope.page = 'home';
     $scope.current_page = 'jokes-home';
+    $scope.category = '';
     $scope.thumbsup = '';
     $scope.thumbsdown = '';
     $scope.logs = '';
@@ -149,7 +150,9 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
 
     $scope.switch_tab = function(tab) {
         this.current_tab = tab;
-        this.update_content(tab + "-home");
+        this.page = "home";
+        this.current_page = this.current_tab + "-" + this.page;
+        this.update_content(this.current_page);
     };
 
     $scope.get_json = function() {
@@ -208,6 +211,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
         console.log(page);
         this.content = this.get_content(page);
         this.update_like(page);
+        this.category = this.get_category();
     };
 
     $scope.update_like = function (page) {
