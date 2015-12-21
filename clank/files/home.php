@@ -84,6 +84,7 @@
                     <!-- Movie controls-->
                     <div class="row container-fluid top-buffer" ng-if="show_movies_control()">
                         <div class="col-sm-6">
+                            <!-- Modal -->
                             <a href="#" class="float-right btn btn-default" data-toggle="modal" data-target="#videoModal"
                                data-theVideo="http://www.youtube.com/embed/loFtozxZG0s">Watch trailer</a>
 
