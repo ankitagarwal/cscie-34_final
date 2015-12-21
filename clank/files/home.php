@@ -84,12 +84,14 @@
                     <!-- Movie controls-->
                     <div class="row container-fluid top-buffer" ng-if="show_movies_control()">
                         <div class="col-sm-6">
-                            <button type="button" class="float-right btn-primary" onclick="location.href='select_theater.php';">
-                                Watch trailer
-                            </button>
+                            <a href="#" class="float-right btn btn-default" data-toggle="modal" data-target="#videoModal"
+                               data-theVideo="http://www.youtube.com/embed/loFtozxZG0s">Watch trailer</a>
+
+                            <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal"
+                                 aria-hidden="true"></div>
                         </div>
                         <div class="col-sm-5">
-                            <button type="button" class="float-right btn-primary" onclick="location.href='select_theater.php';">
+                            <button type="button" class="float-right btn btn-default" onclick="location.href='select_theater.php';">
                                 Book tickets
                             </button>
                         </div>
@@ -124,6 +126,7 @@
                     </div>
                 </div>
                 <script src="../js/blood-footer.js"></script>
+                <script src="../js/modal-footer.js"></script>
             </div>
 
         </div>

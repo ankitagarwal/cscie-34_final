@@ -14,7 +14,7 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     $scope.logs = '';
     $scope.checked = false; // This will be binded using the ps-open attribute
     $scope.settings_jokes  = true;
-    $scope.settings_movies = false;
+    $scope.settings_movies = true;
     $scope.settings_events = false;
     $scope.settings_videos = false;
     $scope.items = ["Test", "alu", "testy", "tessst", "test1"];

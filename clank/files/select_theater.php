@@ -63,14 +63,14 @@
                     </div>
 
                     <div class="row container-fluid top-buffer">
-                        <div class="col-sm-4">
-                            <button type="button" class="float-right btn-danger" onclick="location.href='home.php';">
+                        <div class="col-sm-4 col-sm-offset-1">
+                            <button type="button" class="btn float-right btn-danger" onclick="location.href='home.php';">
                                 Cancel
                             </button>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 col-sm-offset-2">
                             <input name="date" type="hidden" ng-model="dt" value={{dt}} />
-                            <button type="submit" class="float-right btn-primary">
+                            <button type="submit" class="btn float-right btn-primary">
                                 Continue
                             </button>
                         </div>
