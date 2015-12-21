@@ -74,7 +74,7 @@
                             </span>
                         </div>
                         <div class="row container-fluid">
-                            <span class="col-sm-offeset-6">Category:</span>
+                            <span class="col-sm-offset-6">Category:</span>
                             <span class="greyfont">{{get_category()}}</span>
                         </div>
                     </div>

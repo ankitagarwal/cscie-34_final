@@ -132,7 +132,10 @@ input[type="radio"], input[type="checkbox"]{
 .greyfont {
     color:grey;
 }
-
+#noborder,
+#noborder2 {
+    border-bottom: none;
+}
 /*SEARCH FORM*/
 .search-form {
     border-radius: 30px 30px 30px 30px;
