@@ -6,6 +6,8 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     $scope.current_tab = 'jokes';
     $scope.page = 'home';
     $scope.current_page = 'jokes-home';
+    $scope.prev_exists = true;
+    $scope.next_exists = true;
     $scope.category = '';
     $scope.thumbsup = '';
     $scope.thumbsdown = '';
@@ -155,6 +157,20 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
         this.update_content(this.current_page);
     };
 
+    $scope.does_next_exists = function() {
+        if (this.page === "home-next") {
+            return false;
+        }
+        return true;
+    };
+
+    $scope.does_prev_exists = function() {
+        if (this.page === "home-prev") {
+            return false;
+        }
+        return true;
+    };
+
     $scope.get_json = function() {
         $.ajax({
             url: "../js/content.json",
@@ -210,8 +226,11 @@ entertain.controller('EntertainController', ['$scope', '$http', function($scope,
     $scope.update_content = function (page) {
         console.log(page);
         this.content = this.get_content(page);
+        console.log(this.content);
         this.update_like(page);
         this.category = this.get_category();
+        this.prev_exists = this.does_prev_exists()
+        this.next_exists = this.does_next_exists()
     };
 
     $scope.update_like = function (page) {

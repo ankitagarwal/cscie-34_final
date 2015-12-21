@@ -60,15 +60,16 @@
                         </div>
                         <div class="row container-fluid">
                             <span class="col-sm-1 vert-allign">
-                                <a href="#" aria-label="Next">
-                                    <span ng-click="prev()" class="glyphicon glyphicon-resize-small glyphicon-menu-left"></span>
+                                <a ng-show="prev_exists" href="#" aria-label="Prev">
+                                    <span ng-click="prev()" class="glyphicon glyphicon-resize-small
+                                    glyphicon-menu-left"></span>
                                 </a>
                             </span>
 
                             <span class="col-sm-9" ng-bind-html="content | unsafe">
                             </span>
                             <span class="col-sm-1 vert-allign">
-                                <a href="#" aria-label="Next">
+                                <a ng-show="next_exists" href="#" aria-label="Next">
                                     <span ng-click="next()" class="glyphicon glyphicon-resize-small glyphicon-menu-right"></span>
                                 </a>
                             </span>

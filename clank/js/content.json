@@ -51,10 +51,15 @@
       "like": 0,
       "category": "Meetups"
     },
-    "movies-home": {
-      "content": "<b>Batman Vs Superman</b><p>Is he human ?Is he God ? Does he have right to be one?</p>",
+    "movies-home-next": {
+      "content": "<b>The Finest Hours</b><p>On Feb. 18, 1952, a massive storm splits the SS Pendleton in two, trapping more than 30 sailors inside the tanker's sinking stern. Engineer Ray Sybert bravely takes charge to organize a strategy for his fellow survivors.</p>",
       "like": 0,
-      "category": "Science Fiction"
+      "category": "Action, Drama"
+    },
+    "movies-home-prev": {
+      "content": "<b>Kung Fu Panda 3</b><p>After reuniting with his long-lost father (Bryan Cranston), Po (Jack Black) must train a village of clumsy pandas to help him defeat the villainous Kai (J.K. Simmons).</p>",
+      "like": 0,
+      "category": "Animation, Action, Comedy"
     }
   }
 }
